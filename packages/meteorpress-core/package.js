@@ -41,8 +41,10 @@ Package.onUse(function(api) {
 
   // client
   api.addFiles([
-    'lib/accounts/config.js'
-  ]);
+    'lib/accounts/config.js',
+    'lib/collections/schemas.js',
+    'lib/collections/collections.js',
+  ], ['client', 'server']);
 
   // Routing
   api.addFiles([
@@ -52,7 +54,7 @@ Package.onUse(function(api) {
 
   // Last but not least.. (optional)
   api.export([
-
+    'Schemas'
   ]);
 
 });

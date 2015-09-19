@@ -6,7 +6,7 @@
 // Initialize all app namespaces
 // --------------------------------------------------
 
-App = {
+Meteorpress = {
   controllers: {},
   collections: {},
   schemas: {},
@@ -14,8 +14,8 @@ App = {
   utils: {},
   data: {} // fixtures, static content, etc.
 };
-App.Settings = Meteor.settings && Meteor.settings.public
-                                      && Meteor.settings.public.App;
+Meteorpress.Settings = Meteor.settings && Meteor.settings.public
+                                      && Meteor.settings.public.Meteorpress;
 
 Secondary = {
   Controllers: {},
@@ -34,7 +34,7 @@ Secondary = {
 * undefined, set a default value and return it. If the value is already
 * defined, return the existing value.
 */
-App.utils.defaultValue = function (target, prop, value) {
+Meteorpress.utils.defaultValue = function (target, prop, value) {
  if (typeof target[prop] === 'undefined') {
    target[prop] = value;
    return value;
@@ -51,7 +51,7 @@ App.utils.defaultValue = function (target, prop, value) {
  * Assert that the given condition is truthy and throw an error if not.
  */
 
-App.utils.assert = function (condition, msg) {
+Meteorpress.utils.assert = function (condition, msg) {
   if (!condition)
     throw new Error(msg);
 };
@@ -59,7 +59,7 @@ App.utils.assert = function (condition, msg) {
 /**
  * Print a warning message to the console if the console is defined.
  */
-App.utils.warn = function (condition, msg) {
+Meteorpress.utils.warn = function (condition, msg) {
   if (!condition)
     console && console.warn && console.warn(msg);
 };
@@ -72,9 +72,9 @@ App.utils.warn = function (condition, msg) {
  * @param {Function} Parent The parent constructor function.
  * @param {Object} [props] Prototype properties to add to the child
  */
-App.utils.inherits = function (Child, Parent, props) {
-  App.utils.assert(typeof Child !== "undefined", "Child is undefined in inherits function");
-  App.utils.assert(typeof Parent !== "undefined", "Parent is undefined in inherits function");
+Meteorpress.utils.inherits = function (Child, Parent, props) {
+  Meteorpress.utils.assert(typeof Child !== "undefined", "Child is undefined in inherits function");
+  Meteorpress.utils.assert(typeof Parent !== "undefined", "Parent is undefined in inherits function");
 
   // copy static fields
   for (var key in Parent) {
@@ -105,7 +105,7 @@ App.utils.inherits = function (Child, Parent, props) {
  * @param {Function} Parent The parent constructor function.
  * @param {Object} [props] Prototype properties to add to the child
  */
-App.utils.extend = function (Parent, props) {
+Meteorpress.utils.extend = function (Parent, props) {
   props = props || {};
 
   var ctor = function () {
@@ -120,13 +120,13 @@ App.utils.extend = function (Parent, props) {
     constructor.apply(this, arguments);
   };
 
-  return App.utils.inherits(ctor, Parent, props);
+  return Meteorpress.utils.inherits(ctor, Parent, props);
 };
 
 /**
  * Either window in the browser or global in NodeJS.
  */
-App.utils.global = (function () {
+Meteorpress.utils.global = (function () {
   return Meteor.isClient ? window : global;
 })();
 
@@ -140,11 +140,11 @@ App.utils.global = (function () {
  *  console.log(typeof MyObject)
  *  > ReferenceError: MyObject is not defined
  *
- *  App.utils.namespace('MyObject.Foo.Bar.Baz')
+ *  Meteorpress.utils.namespace('MyObject.Foo.Bar.Baz')
  *  console.log( MyObject )
  *  > Object {Foo: Bar: {} } //Note that the 'Baz' was not set since we used 1 parameter
  *
- * App.utils.namespace('MyObject.Thing.Foo.Bar', {first: 'some val'})
+ * Meteorpress.utils.namespace('MyObject.Thing.Foo.Bar', {first: 'some val'})
  * console.log( MyObject )
  * > {
  * >   Thing: {
@@ -155,7 +155,7 @@ App.utils.global = (function () {
  * > }
  *
  * // We can deepen defined namespaces without overwriting
- * App.utils.namespace('MyObject.Thing.Foo.Bar.Baz.Lib', myFunction)
+ * Meteorpress.utils.namespace('MyObject.Thing.Foo.Bar.Baz.Lib', myFunction)
  * console.log( MyObject.Thig.Foo )
  * > {
  * >   Bar: {
@@ -169,9 +169,9 @@ App.utils.global = (function () {
  *
  * // lib/App/Modules/FooModule.coffee
  * // 1. Start by importing all dependencies
- * utils = App.utils
- * Schemas = App.Schemas
- * Modules = App.Modules ...
+ * utils = Meteorpress.utils
+ * Schemas = Meteorpress.Schemas
+ * Modules = Meteorpress.Modules ...
  *
  * // 2. Create your class or library
  * class MyModule
@@ -183,27 +183,27 @@ App.utils.global = (function () {
  *     # do stuff
  *
  * // 3. Export
- * App.utils.namespace('App.Modules.MyModule', MyModule);
+ * Meteorpress.utils.namespace('Meteorpress.Modules.MyModule', MyModule);
  *
  *
  *
  *
- * var utils = App.utils,
- *     ns = utils.namespace('App.Modules.FooModule'),
- *     fooModule = utils.defaultValue(App.Modules, 'FooModule', {});
+ * var utils = Meteorpress.utils,
+ *     ns = utils.namespace('Meteorpress.Modules.FooModule'),
+ *     fooModule = utils.defaultValue(Meteorpress.Modules, 'FooModule', {});
  *
  *
  *
  *
  */
-App.utils.namespace = function (namespace, value) {
-  var global = App.utils.global;
+Meteorpress.utils.namespace = function (namespace, value) {
+  var global = Meteorpress.utils.global;
   var parts;
   var part;
   var name;
   var ptr;
 
-  App.utils.assert(typeof namespace === 'string', "namespace must be a string");
+  Meteorpress.utils.assert(typeof namespace === 'string', "namespace must be a string");
 
   parts = namespace.split('.');
   name = parts.pop();
@@ -228,13 +228,13 @@ App.utils.namespace = function (namespace, value) {
  * Example:
  *
  * var App = {};
- * App.foo = {};
+ * Meteorpress.foo = {};
  *
- * var baz = App.foo.baz = {};
- * App.utils.resolve("App.foo.baz") === baz
+ * var baz = Meteorpress.foo.baz = {};
+ * Meteorpress.utils.resolve("Meteorpress.foo.baz") === baz
  */
-App.utils.resolve = function (nameOrValue) {
-  var global = App.utils.global;
+Meteorpress.utils.resolve = function (nameOrValue) {
+  var global = Meteorpress.utils.global;
   var parts;
   var ptr;
 
@@ -263,7 +263,7 @@ App.utils.resolve = function (nameOrValue) {
  * @param   {string} helperName - Exact name of helper.
  * @returns {object} helper
  */
-App.utils.getHelper = function(template, helperName) {
+Meteorpress.utils.getHelper = function(template, helperName) {
   if (! template instanceof Template) {
     throw new Error('template arg needs to be an instance of `Template`');
   }
@@ -274,5 +274,5 @@ App.utils.getHelper = function(template, helperName) {
 }
 
 // make sure App ends up in the global namespace
-App.utils.global.App = App;
-App.utils.global.Secondary = Secondary;
+Meteorpress.utils.global.Meteorpress = Meteorpress;
+Meteorpress.utils.global.Secondary = Secondary;

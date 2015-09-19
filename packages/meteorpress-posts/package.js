@@ -22,6 +22,18 @@ Package.onUse(function(api) {
 
   api.imply(packages); // this package => application
 
+  // Helpers
+  api.addFiles([
+    'lib/client/helpers/helpers.js'
+  ], ['client', 'server']);
+
+  // Collections, schema, helpers, TabularTables
+  api.addFiles([
+    'lib/collections/posts-collection.js',
+    'lib/collections/posts-schema.js',
+    //'lib/collections/posts-collection-helpers.js'
+  ], ['client', 'server']);
+
   // client
   api.addFiles([
     'lib/client/loop.jsx'
@@ -29,6 +41,8 @@ Package.onUse(function(api) {
 
   // server
   api.addFiles([
+    'lib/seed.js',
+    'lib/server/publications/posts.js'
   ], 'server');
 
   // Routes
@@ -36,6 +50,9 @@ Package.onUse(function(api) {
     'lib/router/routes.jsx'
   ], 'client');
 
+  api.export([
+    'Posts'
+  ]);
 });
 
 Package.onTest(function (api) {

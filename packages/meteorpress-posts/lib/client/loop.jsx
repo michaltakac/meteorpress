@@ -21,7 +21,7 @@ Loop = React.createClass({
   render() {
     return (
       <div>
-        <p>test</p>
+        {(this.data.posts)? this.getList() : "loading..."}
       </div>
     );
   }

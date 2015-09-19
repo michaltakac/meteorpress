@@ -84,7 +84,7 @@ Package.onUse(function(api) {
 
 
   api.export([
-    'App',
+    'Meteorpress',
     'Secondary',
     '_',
     'Meteor',
@@ -97,5 +97,6 @@ Package.onUse(function(api) {
     'Roles',
     'AccountsTemplates',
     'SimpleSchema',
+    'Schemas'
   ]);
 });
