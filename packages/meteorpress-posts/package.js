@@ -1,10 +1,10 @@
 /**
- * Admin panel.
+ * Posts package.
  *
  */
 Package.describe({
-  name: 'meteorpress:app-admin',
-  summary: 'Admin panel package.',
+  name: 'meteorpress:posts',
+  summary: 'Posts settings package.',
   version: '1.0.0',
   git: ''
 });
@@ -22,9 +22,13 @@ Package.onUse(function(api) {
 
   api.imply(packages); // this package => application
 
+  // client
+  api.addFiles([
+    'lib/client/loop.jsx'
+  ], 'client');
+
   // server
   api.addFiles([
-
   ], 'server');
 
 });
@@ -32,7 +36,7 @@ Package.onUse(function(api) {
 Package.onTest(function (api) {
   api.use([
     'sanjo:jasmine@0.18.0',
-    'meteorpress:app-admin'
+    'meteorpress:posts'
   ], ['client']);
 
 });

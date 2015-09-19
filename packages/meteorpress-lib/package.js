@@ -18,7 +18,7 @@ Package.onUse(function(api) {
     'meteor-base',
     'mobile-experience',
     'mongo',
-    //'blaze-html-templates',
+    //'blaze-html-templates', // we don't use blaze
     'session',
     'jquery',
     'tracker',
@@ -52,7 +52,7 @@ Package.onUse(function(api) {
     'aldeed:autoform@5.5.0',
     'arillo:flow-router-helpers',
     'kadira:react-layout',
-    'kadira:flow-router',
+    'kadira:flow-router-ssr@3.3.0',
     'useraccounts:bootstrap',
     'useraccounts:flow-routing',
     'meteortoys:allthings'

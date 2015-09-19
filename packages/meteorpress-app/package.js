@@ -15,4 +15,9 @@ Package.onUse(function(api) {
     'meteorpress:app-email'
   ], ['client', 'server']);
 
+  // Admin panel
+  api.imply([
+    'meteorpress:admin'
+  ], ['client', 'server']);
+
 });

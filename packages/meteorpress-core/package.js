@@ -25,13 +25,15 @@ Package.onUse(function(api) {
   api.imply(packages); // this package => application
 
   // client
-  api.addAssets([
+  api.addAssets([ // From Meteor v1.2, static HTML fles needs to be wrapped in addAssets.
     'lib/client/index.html',
     'lib/client/layouts/loading.html',
     'lib/client/layouts/notFound.html',
   ], 'client');
 
   api.addFiles([
+    'lib/caching/cache.js',
+    'lib/caching/defer-script-loading.js',
     'lib/helpers/helpers-ui.js',
     'lib/helpers/stringHelpers.js',
     'lib/client/compatibility/bootstrap.js'
