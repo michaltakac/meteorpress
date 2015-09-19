@@ -32,7 +32,8 @@ Package.onUse(function(api) {
     'ecmascript',
     'react',
     'react-meteor-data',
-    'twbs:bootstrap', // JUST FOR NOW!!
+    //'twbs:bootstrap', // We should use Bootstrap packaged by ourselves, because in future we
+    // want to provide user-created templates (like Ghost themes or Wordpress themes, etc...)
     'accounts-password',
     'coffeescript',
     'fortawesome:fontawesome',

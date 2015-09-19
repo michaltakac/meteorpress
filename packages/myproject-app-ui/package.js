@@ -37,8 +37,8 @@ Package.onUse(function(api) {
 
   // templates
   api.addFiles([
-    //'lib/client/layouts/_appHeader.js',
     'lib/client/layouts/header.jsx',
+    'lib/client/layouts/footer.jsx',
     //'lib/client/dashboard.js',
     'lib/client/home.jsx'
   ], ['client', 'server']);

@@ -8,6 +8,7 @@ AppLayout = React.createClass({
         <div className="container">
           {this.props.content}
         </div>
+        <Footer />
       </div>
     );
   }
