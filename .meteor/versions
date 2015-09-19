@@ -62,6 +62,12 @@ logging@1.0.8-rc.1
 matb33:collection-hooks@0.7.15
 meteor@1.1.7-rc.2
 meteor-base@1.0.1-rc.0
+meteorpress:app@1.0.0
+meteorpress:app-email@1.0.0
+meteorpress:app-styles@1.0.0
+meteorpress:app-ui@1.0.0
+meteorpress:core@1.0.0
+meteorpress:lib@1.0.0
 meteortoys:allthings@0.1.0
 meteortoys:toykit@0.2.2
 minifiers@1.1.6-rc.1
@@ -73,12 +79,6 @@ mongo@1.1.1-rc.4
 mongo-id@1.0.1-rc.0
 msavin:jetsetter@0.1.1
 msavin:mongol@1.0.12
-myproject:app@1.0.0
-myproject:app-email@1.0.0
-myproject:app-styles@1.0.0
-myproject:app-ui@1.0.0
-myproject:core@1.0.0
-myproject:lib@1.0.0
 npm-bcrypt@0.7.8_2
 npm-mongo@1.4.39-rc.0_1
 observe-sequence@1.0.7-rc.0
