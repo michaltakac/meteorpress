@@ -29,7 +29,7 @@ Header = React.createClass({
 
             <ul className="nav navbar-nav navbar-right">
               <li className="{{ isActivePath regex='home' }}"><a href="/"><i className="fa fa-home"></i> Home</a></li>
-              <li className="{{ isActivePath regex='dashboard' }}"><a href="/dashboard"><i className="fa fa-gear"></i> Dashboard</a></li>
+              <li><a href="/posts"><i className="fa fa-gear"></i> Posts</a></li>
             </ul>
           </div>
 
