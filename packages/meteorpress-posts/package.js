@@ -31,6 +31,11 @@ Package.onUse(function(api) {
   api.addFiles([
   ], 'server');
 
+  // Routes
+  api.addFiles([
+    'lib/router/routes.jsx'
+  ], 'client');
+
 });
 
 Package.onTest(function (api) {

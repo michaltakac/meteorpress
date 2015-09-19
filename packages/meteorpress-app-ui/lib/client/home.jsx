@@ -1,6 +1,6 @@
 // Home component - represents the whole app
 
-AppLayout = React.createClass({
+BlogLayout = React.createClass({
   render() {
     return (
       <div>

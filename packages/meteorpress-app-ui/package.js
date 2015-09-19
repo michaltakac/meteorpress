@@ -50,7 +50,7 @@ Package.onUse(function(api) {
 
   // Last but not least.. (optional)
   api.export([
-
+    'BlogLayout'
   ]);
 
 });

@@ -77,6 +77,7 @@ meteorpress:app-styles@1.0.0
 meteorpress:app-ui@1.0.0
 meteorpress:core@1.0.0
 meteorpress:lib@1.0.0
+meteorpress:posts@1.0.0
 meteortoys:allthings@0.1.0
 meteortoys:toykit@0.2.2
 mfactory:admin-lte@0.0.2

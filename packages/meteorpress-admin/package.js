@@ -1,7 +1,12 @@
+/**
+ * Admin panel main package
+ *
+ *
+ */
 Package.describe({
   name: 'meteorpress:admin',
   version: '1.0.0',
-  summary: 'Meteor Database Admin package for use with Flow Router',
+  summary: 'Meteor Flow-Admin package for use with Flow Router',
   git: '',
   documentation: 'README.md'
 });

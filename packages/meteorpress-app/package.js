@@ -12,7 +12,8 @@ Package.onUse(function(api) {
     'meteorpress:core',
     'meteorpress:app-ui',
     'meteorpress:app-styles',
-    'meteorpress:app-email'
+    'meteorpress:app-email',
+    'meteorpress:posts'
   ], ['client', 'server']);
 
   // Admin panel

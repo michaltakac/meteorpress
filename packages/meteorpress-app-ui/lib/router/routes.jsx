@@ -1,6 +1,6 @@
 FlowRouter.route('/', {
   action: function() {
-    ReactLayout.render(AppLayout, {
+    ReactLayout.render(BlogLayout, {
       content: <Home />
     });
   }
