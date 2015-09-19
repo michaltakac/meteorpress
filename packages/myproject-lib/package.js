@@ -11,11 +11,28 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom(['METEOR@1.1.0.3']);
+  api.versionsFrom('METEOR@1.2-rc.17');
 
   var packages = [
-    'meteor-platform',
+    'standard-minifiers',
+    'meteor-base',
+    'mobile-experience',
+    'mongo',
+    //'blaze-html-templates',
+    'session',
+    'jquery',
+    'tracker',
+    'logging',
+    'reload',
+    'random',
+    'ejson',
+    'spacebars',
+    'check',
     'less',
+    'ecmascript',
+    'react',
+    'react-meteor-data',
+    'twbs:bootstrap', // JUST FOR NOW!!
     'accounts-password',
     'coffeescript',
     'fortawesome:fontawesome',
@@ -33,7 +50,7 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.5.0',
     'arillo:flow-router-helpers',
-    'kadira:blaze-layout',
+    'kadira:react-layout',
     'kadira:flow-router',
     'useraccounts:bootstrap',
     'useraccounts:flow-routing',
@@ -71,9 +88,10 @@ Package.onUse(function(api) {
     '_',
     'Meteor',
     'Template',
-    'Blaze',
+    'React',
+    //'Blaze',
     'FlowRouter',
-    'BlazeLayout',
+    'ReactLayout',
     'AutoForm',
     'Roles',
     'AccountsTemplates',

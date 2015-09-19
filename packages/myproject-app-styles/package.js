@@ -11,7 +11,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.1.0.3');
+  api.versionsFrom('METEOR@1.2-rc.17');
 
   var packages = [
     'myproject:lib', // no dependencies
@@ -24,7 +24,8 @@ Package.onUse(function(api) {
 
   // client
   api.addFiles([
-    'lib/client/stylesheets/base/global.less',
+    // We need to sort less compiling...
+    //'lib/client/stylesheets/base/global.less',
   ], 'client');
 
 });
