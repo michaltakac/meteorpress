@@ -5,7 +5,7 @@ Schemas.Posts = new SimpleSchema({
   slug: {
     type: String
   },
-  post: {
+  post: { // I'll change this to content... silly me lmao
     type: String
   },
   createdAt: {
