@@ -22,6 +22,15 @@ Package.onUse(function(api) {
 
   api.imply(packages); // this package => application
 
+  api.addAssets([
+    // TODO: Figure out how we should load image assets in package
+    /*'assets/images/about-bg.jpg',
+    'assets/images/contact-bg.jpg',
+    'assets/images/home-bg.jpg',
+    'assets/images/post-bg.jpg',
+    'assets/images/post-sample-image.jpg'*/
+  ], 'client');
+
   // Bootstrap Mixins ------------------------------------------------------
   api.addFiles([
     // Utilities
@@ -120,16 +129,13 @@ Package.onUse(function(api) {
 
   // OUR STYLES ------------------------------------------------------
   api.addFiles([
-    'lib/client/stylesheets/base/mixins.import.less',
+    // Variables
     'lib/client/stylesheets/base/variables.import.less',
-
-    // Misc Global Styles
-    'lib/client/stylesheets/base/type.import.less',
-
-    // Components
-    'lib/client/stylesheets/base/loading.import.less',
-    'lib/client/stylesheets/base/buttons.import.less',
-
+    // Mixins
+    'lib/client/stylesheets/base/mixins.import.less',
+    // Theme styles
+    'lib/client/stylesheets/base/default-theme.import.less',
+    // Global imports in this file
     'lib/client/stylesheets/base/global.less',
   ], 'client');
 
@@ -149,6 +155,11 @@ Package.onUse(function(api) {
     'lib/client/layouts/post-layout.jsx'
   ], ['client', 'server']);
 
+  api.addFiles([
+    // Main components
+    'lib/client/loop.jsx'
+  ], ['client', 'server']);
+
   // routes
   api.addFiles([
     'lib/router/routes.jsx'
@@ -156,8 +167,10 @@ Package.onUse(function(api) {
 
   // Last but not least.. (optional)
   api.export([
+    'Header',
     'BlogLayout',
-    'PostLayout'
+    'PostLayout',
+    'Loop'
   ]);
 
 });
