@@ -152,12 +152,14 @@ Package.onUse(function(api) {
     'lib/client/layouts/header.jsx',
     'lib/client/layouts/footer.jsx',
     'lib/client/layouts/blog-layout.jsx',
+    'lib/client/layouts/post-header.jsx',
     'lib/client/layouts/post-layout.jsx'
   ], ['client', 'server']);
 
   api.addFiles([
     // Main components
-    'lib/client/loop.jsx'
+    'lib/client/loop.jsx',
+    'lib/client/post-body.jsx'
   ], ['client', 'server']);
 
   // routes
@@ -170,7 +172,9 @@ Package.onUse(function(api) {
     'Header',
     'BlogLayout',
     'PostLayout',
-    'Loop'
+    'PostHeader',
+    'Loop',
+    'PostBody'
   ]);
 
 });

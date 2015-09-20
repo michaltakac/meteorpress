@@ -11,17 +11,33 @@ Loop = React.createClass({
     return data;
   },
   getList() {
-    return <ul>
+    return ( <div>
       {this.data.posts.map(function(task) {
-        var path = FlowRouter.path('post', {_id: task._id})
-        return <li key={task._id}><a href={path}>{task.title}</a></li>
+        var path = FlowRouter.path('post', {_id: task._id});
+        return ( <div>
+            <div className="post-preview">
+            <a href={path}>
+              <h2 className="post-title">
+                {task.title}
+              </h2>
+              <h3 className="post-subtitle">
+                {task.post}
+              </h3>
+            </a>
+            <p className="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+          </div>
+          <hr />
+        </div> );
       })}
-    </ul>;
+      </div>
+    );
   },
   render() {
     return (
-      <div>
-        {(this.data.posts)? this.getList() : "loading..."}
+      <div className="row">
+        <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+          {(this.data.posts)? this.getList() : "loading..."}
+        </div>
       </div>
     );
   }

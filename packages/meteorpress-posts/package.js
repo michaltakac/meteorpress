@@ -45,11 +45,6 @@ Package.onUse(function(api) {
     'lib/server/publications/posts.js'
   ], 'server');
 
-  // Routes
-  api.addFiles([
-    'lib/router/routes.jsx'
-  ], 'client');
-
   api.export([
     'Posts'
   ]);
