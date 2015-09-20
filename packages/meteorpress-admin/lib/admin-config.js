@@ -1,6 +1,6 @@
 AdminConfig = {
   name: 'Meteorpress',
-  adminEmails: ['takacmichal92@gmail.com'],
+  adminEmails: ['test@meteorpress.com'],
   nonAdminRedirectRoute: 'entrySignIn',
   collections: {},
   autoForm: {

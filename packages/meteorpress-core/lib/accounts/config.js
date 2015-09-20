@@ -1,6 +1,6 @@
 // Options
 AccountsTemplates.configure({
-    defaultLayout: 'appLayout',
+    defaultLayout: 'useraccountsLayout',
     /*defaultLayoutRegions: {
         header: '_header',
         footer: '_footer'
@@ -13,7 +13,7 @@ AccountsTemplates.configure({
 
     //enforceEmailVerification: true,
     confirmPassword: true,
-    //continuousValidation: false,
+    continuousValidation: true,
     //displayFormLabels: true,
     //forbidClientAccountCreation: false,
     //formValidationFeedback: true,

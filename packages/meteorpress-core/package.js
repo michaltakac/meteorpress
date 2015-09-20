@@ -28,7 +28,12 @@ Package.onUse(function(api) {
   api.addAssets([ // From Meteor v1.2, static HTML fles needs to be wrapped in addAssets.
     'lib/client/index.html',
     'lib/client/layouts/loading.html',
-    'lib/client/layouts/notFound.html',
+    'lib/client/layouts/notFound.html'
+  ], 'client');
+
+  // Useraccounts layout for login/signup/register/etc.. forms
+  api.addFiles([
+    'lib/client/useraccounts-layout.html'
   ], 'client');
 
   api.addFiles([
@@ -54,7 +59,8 @@ Package.onUse(function(api) {
 
   // Last but not least.. (optional)
   api.export([
-    'Schemas'
+    'Schemas',
+    'AccountsTemplates'
   ]);
 
 });

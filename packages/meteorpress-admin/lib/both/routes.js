@@ -7,10 +7,11 @@ var fadminRoutes = FlowRouter.group({
     this.register('fadminUser', Meteor.subscribe('adminUser'));
     this.register('fadminCollectionsCount', Meteor.subscribe('adminCollectionsCount'));
   },
- triggersEnter: [
+  triggersEnter: [
   	function(context) {
-  		if(!Roles.userIsInRole (Meteor.userId(),['admin']))
-  		{
+  		if (!Meteor.user()) {
+  			FlowRouter.go('/sign-in');
+  		} else if (!Roles.userIsInRole (Meteor.userId(),['admin'])) {
   			Meteor.call('adminCheckAdmin');
   			//if (typeof AdminConfig.nonAdminRedirectRoute == 'string')
   			//	FlowRouter.go(AdminController.nonAdminRedirectRoute);

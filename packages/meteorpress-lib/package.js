@@ -18,7 +18,7 @@ Package.onUse(function(api) {
     'meteor-base',
     'mobile-experience',
     'mongo',
-    //'blaze-html-templates', // we don't use blaze
+    'blaze-html-templates', // we use blaze just for useraccounts package
     'session',
     'jquery',
     'tracker',
@@ -51,11 +51,12 @@ Package.onUse(function(api) {
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.5.0',
     'arillo:flow-router-helpers',
+    'kadira:blaze-layout',
     'kadira:react-layout',
     'kadira:flow-router-ssr@3.3.0',
     'useraccounts:bootstrap',
     'useraccounts:flow-routing',
-    'meteortoys:allthings'
+    'msavin:mongol' // had some problems with meteortoys:allthings, especially with jetsetter
   ];
 
   api.use(packages);
@@ -74,12 +75,10 @@ Package.onUse(function(api) {
     api.export('__insp');
   }
 
-
   // And now.. your files! I recommend you declare namespaces in your very first
   // file.
   api.addFiles([
-    'lib/core.js',
-    //'lib/babel.json'
+    'lib/core.js'
   ], ['client', 'server']);
 
 
@@ -90,7 +89,6 @@ Package.onUse(function(api) {
     'Meteor',
     'Template',
     'React',
-    //'Blaze',
     'FlowRouter',
     'ReactLayout',
     'AutoForm',
