@@ -5,6 +5,8 @@ PostHeader = React.createClass({
     var data = {};
     if(handle.ready()) {
       data.post = Posts.findOne({_id: this.props._id});
+      data.author = Meteor.users.findOne(data.post.author);
+      data.createdDate = moment(data.post.createdAt).format('Do MMMM YYYY');
     }
 
     return data;
@@ -49,7 +51,7 @@ PostHeader = React.createClass({
                         <div className="post-heading">
                             <h1>{this.data.post.title}</h1>
                             <h2 className="subheading">TODO: load subheader from collection/post</h2>
-                            <span className="meta">Posted by <a href="#">Start Bootstrap</a> on August 24, 2014</span>
+                            <span className="meta">Posted by <a href="#">{this.data.author.emails[0].address}</a> on {this.data.createdDate}</span>
                         </div>
                     </div>
                 </div>
