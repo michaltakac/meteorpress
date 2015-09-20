@@ -11,7 +11,7 @@ FlowRouter.route('/post/:_id', {
 	name: 'post',
   action: function(params) {
     ReactLayout.render(BlogLayout, {
-    	content: <PostPage _id={params._id} />
+    	content: <PostLayout _id={params._id} />
     });
   }
 });

@@ -1,10 +1,10 @@
 /**
- * App stylesheets using Bootstrap with LESS.
+ * Default theme for Meteorpress.
  *
  */
 Package.describe({
-  name: 'meteorpress:app-styles',
-  summary: 'App styles package.',
+  name: 'meteorpress:default-theme',
+  summary: 'Default theme package.',
   version: '1.0.0',
   git: ''
 });
@@ -15,7 +15,7 @@ Package.onUse(function(api) {
 
   var packages = [
     'meteorpress:lib', // no dependencies
-    'meteorpress:core',
+    'meteorpress:core'
   ];
 
   api.use(packages); // all code => this package
@@ -133,5 +133,39 @@ Package.onUse(function(api) {
     'lib/client/stylesheets/base/global.less',
   ], 'client');
 
+  // END OF STYLES --------------------------------------------------
+
+  // collections
+  api.addFiles([
+    //'lib/client/collections/items.js'
+  ], ['client', 'server']);
+
+  // templates
+  api.addFiles([
+    // Layouts
+    'lib/client/layouts/header.jsx',
+    'lib/client/layouts/footer.jsx',
+    'lib/client/layouts/blog-layout.jsx',
+    'lib/client/layouts/post-layout.jsx'
+  ], ['client', 'server']);
+
+  // routes
+  api.addFiles([
+    'lib/router/routes.jsx'
+  ], 'client');
+
+  // Last but not least.. (optional)
+  api.export([
+    'BlogLayout',
+    'PostLayout'
+  ]);
+
 });
 
+Package.onTest(function (api) {
+  api.use([
+    'meteorpress:default-theme',
+    'sanjo:jasmine@0.18.0'
+  ], ['client']);
+
+});

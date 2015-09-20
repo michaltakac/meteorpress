@@ -10,15 +10,14 @@ Package.onUse(function(api) {
   api.imply([
     'meteorpress:lib',
     'meteorpress:core',
-    'meteorpress:app-ui',
-    'meteorpress:app-styles',
     'meteorpress:app-email',
-    'meteorpress:posts'
+    'meteorpress:posts',
+    'meteorpress:admin'
   ], ['client', 'server']);
 
-  // Admin panel
+  // Loading our new default theme :D
   api.imply([
-    'meteorpress:admin'
+    'meteorpress:default-theme'
   ], ['client', 'server']);
 
 });

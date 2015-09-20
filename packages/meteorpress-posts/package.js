@@ -36,8 +36,7 @@ Package.onUse(function(api) {
 
   // client
   api.addFiles([
-    'lib/client/loop.jsx',
-    'lib/client/post-page.jsx'
+    'lib/client/loop.jsx'
   ], 'client');
 
   // server

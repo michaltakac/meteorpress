@@ -1,4 +1,4 @@
-PostPage = React.createClass({
+PostLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     var handle = Meteor.subscribe('singlePost', this.props._id);

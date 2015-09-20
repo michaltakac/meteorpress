@@ -73,9 +73,8 @@ meteorhacks:unblock@1.1.0
 meteorpress:admin@1.0.0
 meteorpress:app@1.0.0
 meteorpress:app-email@1.0.0
-meteorpress:app-styles@1.0.0
-meteorpress:app-ui@1.0.0
 meteorpress:core@1.0.0
+meteorpress:default-theme@1.0.0
 meteorpress:lib@1.0.0
 meteorpress:posts@1.0.0
 meteortoys:allthings@0.1.0
