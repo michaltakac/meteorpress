@@ -5,7 +5,7 @@ Loop = React.createClass({
     var handle = Meteor.subscribe('posts');
     var data = {};
     if(handle.ready()) {
-      data.posts = Posts.find({}, {sort: {createdAt: 1}}).fetch();
+      data.posts = Posts.find({}, {sort: {createdAt: -1}}).fetch();
     }
 
     return data;
@@ -14,6 +14,8 @@ Loop = React.createClass({
     return ( <div>
       {this.data.posts.map(function(task) {
         var path = FlowRouter.path('post', {_id: task._id});
+        var author = Meteor.users.findOne(task.author);
+        var createdDate = moment(task.createdAt).format('Do MMMM YYYY');
         return ( <div>
             <div className="post-preview">
             <a href={path}>
@@ -21,10 +23,10 @@ Loop = React.createClass({
                 {task.title}
               </h2>
               <h3 className="post-subtitle">
-                {task.post}
+                {task.content}
               </h3>
             </a>
-            <p className="post-meta">Posted by <a href="#">Start Bootstrap</a> on September 24, 2014</p>
+            <p className="post-meta">Posted by <a href="#">{author.emails[0].address}</a> on {createdDate}</p>
           </div>
           <hr />
         </div> );

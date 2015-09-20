@@ -2,9 +2,18 @@ AdminConfig = {
   name: 'Meteorpress',
   adminEmails: ['test@meteorpress.com'],
   nonAdminRedirectRoute: 'entrySignIn',
-  collections: {},
+  collections: {
+  	Posts: {
+      tableColumns: [
+      	{ label: 'Title', name: 'title' },
+      	{ label: 'Category', name: 'category' },
+      	{ label: 'Tags', name: 'tags' },
+        { label: 'Date', name: 'createdAt' }
+      ]
+    }
+  },
   autoForm: {
-    omitFields: ['createdAt', 'updatedAt']
+    omitFields: ['author', 'slug', 'createdAt', 'updatedAt']
   }
 }
 
