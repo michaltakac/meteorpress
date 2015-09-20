@@ -7,8 +7,7 @@ AdminConfig = {
       tableColumns: [
       	{ label: 'Title', name: 'title' },
       	{ label: 'Category', name: 'category' },
-      	{ label: 'Tags', name: 'tags' },
-        { label: 'Date', name: 'createdAt' }
+      	{ label: 'Tags', name: 'tags' }
       ]
     }
   },

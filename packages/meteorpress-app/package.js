@@ -15,7 +15,8 @@ Package.onUse(function(api) {
     'meteorpress:admin'
   ], ['client', 'server']);
 
-  // Loading our new default theme :D
+  // Loading our new default theme, it needs to be loaded after admin panel,
+  // or like here, separately
   api.imply([
     'meteorpress:default-theme'
   ], ['client', 'server']);

@@ -29,3 +29,5 @@ Template.AdminHeader.events
 	'click .btn-sign-out': () ->
 		Meteor.logout ->
 			FlowRouter.go('/')
+	'click [data-href="homepage"]': () ->
+		FlowRouter.go('/home')

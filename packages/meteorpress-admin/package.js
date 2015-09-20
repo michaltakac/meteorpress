@@ -80,6 +80,6 @@ Package.onUse(function(api) {
 
 Package.onTest(function(api) {
   api.use('tinytest');
-  api.use('meteorpress:flow-admin');
+  api.use('meteorpress:admin');
   api.addFiles('flow-db-admin-tests.js');
 });

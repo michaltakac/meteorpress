@@ -1,4 +1,4 @@
-FlowRouter.route('/', {
+FlowRouter.route(['/', '/home'], {
   action: function() {
     ReactLayout.render(BlogLayout, {
       content: <Loop />
