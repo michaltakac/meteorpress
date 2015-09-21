@@ -22,9 +22,7 @@ Loop = React.createClass({
               <h2 className="post-title">
                 {task.title}
               </h2>
-              <h3 className="post-subtitle">
-                {task.content}
-              </h3>
+              <div className="post-subtitle" dangerouslySetInnerHTML={{__html: task.content}}></div>
             </a>
             <p className="post-meta">Posted by <a href="#">{author.emails[0].address}</a> on {createdDate}</p>
           </div>

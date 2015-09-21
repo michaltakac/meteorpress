@@ -1,0 +1,37 @@
+<template name="markdown_editor">
+  <main class="editor">
+    <section class="entry-container">
+      <header>
+        <section class="box entry-title">
+          <input id="entry-title" class="" placeholder="Your Post Title" tabindex="1" type="text" value="{{post.title}}">
+          {{#if saving}}
+            <span class="save-state"><i class="fa fa-frefresh fa-spin"></i> Saving...</span>
+          {{else}}
+            <span class="save-state text-success"><i class="fa fa-check"></i> Saved!</span>
+          {{/if}}
+        </section>
+      </header>
+      <!-- Markdown Pane -->
+      <section class="entry-markdown active">
+        <header class="floatingheader" id="entry-markdown-header">
+          <small>Markdown</small>
+        </header>
+        <section id="entry-markdown-content" class="entry-markdown-content">
+          <textarea id="entry-markdown"></textarea>
+        </section>
+      </section>
+
+      <!-- Rendered HTML Pane -->
+      <section class="entry-preview">
+        <header class="floatingheader" id="entry-preview-header">
+          <small>Preview
+            <span class="entry-word-count js-entry-word-count">Word count</span>
+          </small>
+        </header>
+        <section class="entry-preview-content">
+          <div class="rendered-markdown"></div>
+        </section>
+      </section>
+    </section>
+  </main>
+</template>

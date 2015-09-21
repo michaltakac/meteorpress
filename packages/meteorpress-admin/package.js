@@ -17,31 +17,31 @@ Package.onUse(function(api) {
   both = ['client','server'];
 
   api.use([
+    'meteorpress:lib', // no dependencies
+    'meteorpress:core',
     'coffeescript',
     'underscore',
     'reactive-var',
     'meteorhacks:unblock@1.1.0',
-    'kadira:flow-router@2.0.1',
-    'kadira:blaze-layout@2.0.0',
     'zimme:active-route@2.3.0',
     'reywood:publish-composite@1.3.6',
-    'aldeed:collection2@2.3.3',
-    'aldeed:autoform@5.5.0',
     'aldeed:template-extension@3.4.3',
     'alanning:roles@1.2.13',
     'raix:handlebar-helpers@0.2.4',
-    'momentjs:moment@2.10.3',
     'aldeed:tabular@1.2.0',
-    'mfactory:admin-lte@0.0.2'
+    'mfactory:admin-lte@0.0.2',
+    'perak:codemirror',
+    'themeteorchef:commonmark',
+    'deanius:promise',
+    'themeteorchef:bert'
     ], both);
 
-  api.use(['less','session','jquery','templating'],'client');
+  api.use(['templating'],'client');
 
   api.use(['email'],'server');
 
   api.add_files([
     'lib/both/AdminDashboard.coffee',
-    'lib/both/routes.js',
     'lib/both/utils.coffee',
     'lib/both/startup.coffee',
     'lib/both/collections.coffee'
@@ -53,23 +53,31 @@ Package.onUse(function(api) {
     'lib/client/html/fadmin_layouts.html',
     'lib/client/html/admin_sidebar.html',
     'lib/client/html/admin_header.html',
+    'lib/client/html/markdown-editor.html',
     'lib/client/css/admin-custom.less',
+    'lib/client/css/markdown-editor.css',
     'lib/client/js/admin_layout.js',
     'lib/client/js/helpers.coffee',
     'lib/client/js/templates.coffee',
     'lib/client/js/events.coffee',
     'lib/client/js/slim_scroll.js',
-    'lib/client/js/autoForm.coffee'
+    'lib/client/js/autoForm.coffee',
+    'lib/client/js/markdown-editor.js'
     ], 'client');
 
   api.add_files([
     'lib/server/publish.coffee',
-    'lib/server/methods.coffee'
+    'lib/server/methods.coffee',
+    'lib/server/markdown-methods.js'
     ], 'server');
 
   api.add_files([
     'lib/admin-config.js'
   ], both);
+
+  api.add_files([
+    'lib/both/routes.js'
+  ], 'client');
 
   api.export([
     'AdminDashboard',

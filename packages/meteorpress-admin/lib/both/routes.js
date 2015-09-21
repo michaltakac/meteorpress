@@ -85,6 +85,17 @@ fadminRoutes.route('/new/:collectionName',{
 	}
 });
 
+fadminRoutes.route('/:_id/edit',{
+	triggersExit: [
+		function(context){
+			BlazeLayout.render('fAdminLayout',{main: 'AdminLoading'});
+		}
+	],
+	action: function(params) {
+		BlazeLayout.render('fAdminLayout',{main: 'markdown_editor'});
+	}
+});
+
 fadminRoutes.route('/edit/:collectionName/:_id',{
 	triggersEnter: [function(context){
 		Session.set('admin_title', context.params.collectionName);

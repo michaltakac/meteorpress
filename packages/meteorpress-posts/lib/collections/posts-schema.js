@@ -1,6 +1,7 @@
 Schemas.Posts = new SimpleSchema({
   title: {
-    type: String
+    type: String,
+    optional: true
   },
   slug: {
     type: String,
@@ -10,10 +11,21 @@ Schemas.Posts = new SimpleSchema({
     type: String,
     autoform: {
       rows: 10
-    }
+    },
+    optional: true
+  },
+  markdown: {
+    type: String,
+    autoValue: function() {
+      if (this.isInsert) {
+        return " ";
+      }
+    },
+    optional: true
   },
   category: {
-    type: String
+    type: String,
+    optional: true
   },
   tags: {
     type: String,

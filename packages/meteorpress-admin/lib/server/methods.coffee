@@ -105,3 +105,4 @@ Meteor.methods
 		check arguments, [Match.Any]
 		global.AdminPages[collection].set
 			sort: _sort
+

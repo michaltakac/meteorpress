@@ -7,6 +7,12 @@ Template.fAdminLayout.events
 		else
 			Session.set 'admin_id', parseID(_id)
 			Session.set 'admin_doc', adminCollectionObject(Session.get('admin_collection_name')).findOne(parseID(_id))
+	'click [data-event="new-post"]': (e,t) ->
+		Meteor.call 'insertDocument', (err,res) ->
+			if err
+				alert 'Something went wrong while inserting new post'
+			else
+				FlowRouter.go '/admin/' + res + '/edit'
 
 Template.AdminDeleteModal.events
 	'click #confirm-delete': () ->
@@ -28,6 +34,6 @@ Template.AdminDashboardUsersEdit.events
 Template.AdminHeader.events
 	'click .btn-sign-out': () ->
 		Meteor.logout ->
-			FlowRouter.go('/')
+			FlowRouter.go '/'
 	'click [data-href="homepage"]': () ->
-		FlowRouter.go('/home')
+		FlowRouter.go '/home'
