@@ -11,23 +11,12 @@ Loop = React.createClass({
     return data;
   },
   getList() {
-    return ( <div>
-      {this.data.posts.map(function(task) {
-        var path = FlowRouter.path('post', {_id: task._id});
+    return (
+      <div>
+      {this.data.posts.map((task) => {
         var author = Meteor.users.findOne(task.author);
         var createdDate = moment(task.createdAt).format('Do MMMM YYYY');
-        return ( <div>
-            <div className="post-preview">
-            <a href={path}>
-              <h2 className="post-title">
-                {task.title}
-              </h2>
-              <div className="post-subtitle" dangerouslySetInnerHTML={{__html: task.content}}></div>
-            </a>
-            <p className="post-meta">Posted by <a href="#">{author.emails[0].address}</a> on {createdDate}</p>
-          </div>
-          <hr />
-        </div> );
+        return ( <PostExcerpt task={task} date={createdDate} /> );
       })}
       </div>
     );
@@ -38,6 +27,24 @@ Loop = React.createClass({
         <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
           {(this.data.posts)? this.getList() : "loading..."}
         </div>
+      </div>
+    );
+  }
+});
+
+PostExcerpt = React.createClass({
+  render() {
+    return (
+      <div>
+        <div className="post-preview">
+          <a href={FlowRouter.path('post', {_id: this.props.task._id})}>
+            <h2 className="post-title">
+              {this.props.task.title}
+            </h2>
+          </a>
+          <p className="post-meta">Posted by <a href="#">{this.props.author}</a> on {this.props.date}</p>
+        </div>
+        <hr />
       </div>
     );
   }

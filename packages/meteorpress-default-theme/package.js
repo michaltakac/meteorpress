@@ -167,7 +167,6 @@ Package.onUse(function(api) {
     'lib/router/routes.jsx'
   ], 'client');
 
-  // Last but not least.. (optional)
   api.export([
     'Header',
     'BlogLayout',
@@ -184,5 +183,4 @@ Package.onTest(function (api) {
     'meteorpress:default-theme',
     'sanjo:jasmine@0.18.0'
   ], ['client']);
-
 });
