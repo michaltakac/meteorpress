@@ -1,17 +1,5 @@
 PostHeader = React.createClass({
-  mixins: [ReactMeteorData],
-  getMeteorData() {
-    var handle = Meteor.subscribe('singlePost', this.props._id);
-    var data = {};
-    if(handle.ready()) {
-      data.post = Posts.findOne({_id: this.props._id});
-      data.author = Meteor.users.findOne(data.post.author);
-      data.createdDate = moment(data.post.createdAt).format('Do MMMM YYYY');
-    }
-
-    return data;
-  },
-  getContent() {
+  render() {
     return (
       <div>
         <nav className="navbar navbar-default navbar-custom navbar-fixed-top">
@@ -49,9 +37,9 @@ PostHeader = React.createClass({
                 <div className="row">
                     <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
                         <div className="post-heading">
-                            <h1>{this.data.post.title}</h1>
+                            <h1>{this.props.post.title}</h1>
                             <h2 className="subheading">TODO: load subheader from collection/post</h2>
-                            <span className="meta">Posted by <a href="#">{this.data.author.emails[0].address}</a> on {this.data.createdDate}</span>
+                            <span className="meta">Posted by <a href="#">{this.props.post.author._id}</a> on {moment(this.props.post.createdAt).format('Do MMMM YYYY')}</span>
                         </div>
                     </div>
                 </div>
@@ -59,8 +47,5 @@ PostHeader = React.createClass({
         </div>
       </div>
     );
-  },
-  render() {
-    return (this.data.post)? this.getContent() : <div>loading...</div>;
   }
 });

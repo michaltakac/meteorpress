@@ -1,4 +1,4 @@
-FlowRouter.route(['/', '/home'], {
+FlowRouter.route('/', {
   action: function() {
     ReactLayout.render(BlogLayout, {
       content: <Loop />
@@ -18,10 +18,7 @@ FlowRouter.route('/posts', {
 FlowRouter.route('/post/:_id', {
 	name: 'post',
   action: function(params) {
-    ReactLayout.render(PostLayout, {
-    	postHeader: <PostHeader _id={params._id} />,
-    	content: <PostBody _id={params._id} />
-    });
+    ReactLayout.render(PostLayout, {"_id": params._id});
   }
 });
 

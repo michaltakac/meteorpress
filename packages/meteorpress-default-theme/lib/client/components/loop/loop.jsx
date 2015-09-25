@@ -14,9 +14,8 @@ Loop = React.createClass({
     return (
       <div>
       {this.data.posts.map((task) => {
-        var author = Meteor.users.findOne(task.author);
         var createdDate = moment(task.createdAt).format('Do MMMM YYYY');
-        return ( <PostExcerpt task={task} date={createdDate} /> );
+        return ( <PostExcerpt key={task._id} task={task} date={createdDate} /> );
       })}
       </div>
     );

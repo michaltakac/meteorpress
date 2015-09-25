@@ -149,17 +149,26 @@ Package.onUse(function(api) {
   // templates
   api.addFiles([
     // Layouts
-    'lib/client/layouts/header.jsx',
-    'lib/client/layouts/footer.jsx',
-    'lib/client/layouts/blog-layout.jsx',
-    'lib/client/layouts/post-header.jsx',
-    'lib/client/layouts/post-layout.jsx'
+    'lib/client/components/layouts/blog-layout.jsx',
+    'lib/client/components/layouts/post-layout.jsx'
   ], ['client', 'server']);
 
   api.addFiles([
-    // Main components
-    'lib/client/loop.jsx',
-    'lib/client/post-body.jsx'
+    // Shared components
+    'lib/client/components/shared/header.jsx',
+    'lib/client/components/shared/footer.jsx'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    // Posts loop components
+    'lib/client/components/loop/loop.jsx',
+    'lib/client/components/loop/post-excerpt.jsx'
+  ], ['client', 'server']);
+
+  api.addFiles([
+    // Post components
+    'lib/client/components/post/post-body.jsx',
+    'lib/client/components/post/post-header.jsx'
   ], ['client', 'server']);
 
   // routes
@@ -171,9 +180,10 @@ Package.onUse(function(api) {
     'Header',
     'BlogLayout',
     'PostLayout',
-    'PostHeader',
     'Loop',
-    'PostBody'
+    'PostHeader',
+    'PostBody',
+    'PostExcerpt'
   ]);
 
 });

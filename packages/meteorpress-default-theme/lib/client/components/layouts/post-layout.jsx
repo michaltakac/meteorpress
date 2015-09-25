@@ -1,4 +1,4 @@
-PostBody = React.createClass({
+PostLayout = React.createClass({
   mixins: [ReactMeteorData],
   getMeteorData() {
     var handle = Meteor.subscribe('singlePost', this.props._id);
@@ -11,12 +11,9 @@ PostBody = React.createClass({
   },
   getContent() {
     return (
-      <div className="container">
-        <div className="row">
-          <div className="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1"
-               dangerouslySetInnerHTML={{__html: this.data.post.content}}>
-          </div>
-        </div>
+      <div>
+        <PostHeader post={this.data.post} />
+        <PostBody post={this.data.post} /> 
       </div>
     );
   },
@@ -24,3 +21,4 @@ PostBody = React.createClass({
     return (this.data.post)? this.getContent() : <div>loading...</div>;
   }
 });
+
