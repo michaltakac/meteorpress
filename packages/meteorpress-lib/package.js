@@ -11,7 +11,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.2-rc.17');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   var packages = [
     'standard-minifiers',
@@ -40,19 +40,19 @@ Package.onUse(function(api) {
     'alanning:roles@1.2.11',
     'zimme:active-route',
     'dburles:collection-helpers',
-    'reywood:publish-composite',
+    'reywood:publish-composite@1.4.2',
     'momentjs:moment',
     'underscorestring:underscore.string',
     'matb33:collection-hooks',
     'dburles:factory',
     'anti:fake',
     'underscore',
-    'yasinuslu:blaze-meta',
+    'yasinuslu:blaze-meta@0.3.3',
     'aldeed:collection2@2.5.0',
     'aldeed:autoform@5.5.0',
     'arillo:flow-router-helpers',
-    'kadira:blaze-layout',
-    'kadira:react-layout',
+    'kadira:blaze-layout@2.1.0',
+    'kadira:react-layout@1.3.1',
     'kadira:flow-router-ssr@3.3.0',
     'useraccounts:bootstrap',
     'useraccounts:flow-routing',

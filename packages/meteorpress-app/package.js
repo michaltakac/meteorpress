@@ -5,14 +5,14 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@1.2-rc.17');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   api.imply([
     'meteorpress:lib',
     'meteorpress:core',
     'meteorpress:app-email',
     'meteorpress:posts',
-    'meteorpress:admin'
+    //'meteorpress:admin'
   ], ['client', 'server']);
 
   // Loading our new default theme, it needs to be loaded after admin panel,

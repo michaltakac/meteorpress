@@ -12,7 +12,7 @@ Package.describe({
 
 Package.onUse(function(api) {
 
-  api.versionsFrom('METEOR@1.2-rc.17');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   // Here you add all your modules, and also define the load order by the way
   // you order them in this array. MAKE SURE app:lib always goes first!

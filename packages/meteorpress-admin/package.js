@@ -12,7 +12,7 @@ Package.describe({
 });
 
 Package.onUse(function(api) {
-  api.versionsFrom('METEOR@1.2-rc.17');
+  api.versionsFrom('METEOR@1.2.0.1');
 
   both = ['client','server'];
 
@@ -28,12 +28,12 @@ Package.onUse(function(api) {
     'aldeed:template-extension@3.4.3',
     'alanning:roles@1.2.13',
     'raix:handlebar-helpers@0.2.4',
-    'aldeed:tabular@1.2.0',
+    'aldeed:tabular@1.4.0',
     'mfactory:admin-lte@0.0.2',
-    'perak:codemirror',
+    'perak:codemirror@1.2.7',
     'themeteorchef:commonmark',
     'deanius:promise',
-    'themeteorchef:bert'
+    'themeteorchef:bert@1.1.0'
     ], both);
 
   api.use(['templating'],'client');
